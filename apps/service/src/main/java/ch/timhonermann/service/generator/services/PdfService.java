@@ -25,7 +25,6 @@ import java.util.stream.IntStream;
 
 @Service
 public class PdfService {
-  private static final int A4_WIDTH_MILLIMETERS = 210;
   private static final int MARGIN_LEFT_MILLIMETERS = 30;
   private static final int MARGIN_RIGHT_MILLIMETERS = 10;
   private static final int MARGIN_TOP_MILLIMETERS = 10;
@@ -262,19 +261,16 @@ public class PdfService {
     var page = document.getPage(0);
     var contentStream = new PDPageContentStream(document, page, PDPageContentStream.AppendMode.APPEND, false);
     var pageHeight = page.getMediaBox().getHeight();
-    var pageWidth = page.getMediaBox().getWidth();
 
     var marginTopMillimeters = TITLE_MARGIN_TOP_MILLIMETERS + 15;
     var marginTop = millimetersToPoints(marginTopMillimeters);
 
-    //    var headerContent = List.of("Pos.", "Bezeichnung", "Anzahl", "MwSt", "Einzelpreis", "Gesamtpreis");
-
     var posWidthMillimeters = 15;
-    var descriptionWidthMillimeters = 75;
+    var descriptionWidthMillimeters = 65;
     var quantityWidthMillimeters = 15;
     var vatWidthMillimeters = 15;
     var unitPriceWidthMillimeters = 25;
-    var amountWidthMillimeters = 25;
+    var amountWidthMillimeters = 35;
 
     var yPos = pageHeight - marginTop;
     var xPosPosition = millimetersToPoints(MARGIN_LEFT_MILLIMETERS);
@@ -284,12 +280,18 @@ public class PdfService {
     var xPosUnitPrice = xPosVat + millimetersToPoints(vatWidthMillimeters);
     var xPosAmount = xPosUnitPrice + millimetersToPoints(unitPriceWidthMillimeters);
 
+    var unitPriceDescription = "Einzelpreis";
+    var amountDescription = "Gesamtpreis";
+
+    var xPosUnitPriceRightAligned = xPosUnitPrice + millimetersToPoints(unitPriceWidthMillimeters) - getBoldTextWidth(unitPriceDescription, TEXT_SIZE_SMALL);
+    var xPosAmountRightAligned = xPosAmount + millimetersToPoints(amountWidthMillimeters) - getBoldTextWidth(amountDescription, TEXT_SIZE_SMALL);
+
     drawTextBold(contentStream, "Pos.", xPosPosition, yPos, TEXT_SIZE_SMALL);
     drawTextBold(contentStream, "Bezeichnung", xPosDescription, yPos, TEXT_SIZE_SMALL);
     drawTextBold(contentStream, "Anzahl", xPosQuantity, yPos, TEXT_SIZE_SMALL);
     drawTextBold(contentStream, "MwSt", xPosVat, yPos, TEXT_SIZE_SMALL);
-    drawTextBold(contentStream, "Einzelpreis", xPosUnitPrice, yPos, TEXT_SIZE_SMALL);
-    drawTextBold(contentStream, "Gesamtpreis", xPosAmount, yPos, TEXT_SIZE_SMALL);
+    drawTextBold(contentStream, unitPriceDescription, xPosUnitPriceRightAligned, yPos, TEXT_SIZE_SMALL);
+    drawTextBold(contentStream, amountDescription, xPosAmountRightAligned, yPos, TEXT_SIZE_SMALL);
 
     IntStream.range(0, items.size())
         .forEach(i -> {
@@ -302,8 +304,8 @@ public class PdfService {
             addDescription(document, page, item.description(), xPosDescription, yPosCurrent);
             addQuantity(document, page, item.quantity(), xPosQuantity, yPosCurrent);
             addVat(document, page, item.vat(), xPosVat, yPosCurrent);
-            addUnitPrice(document, page, item.unitPrice(), xPosUnitPrice, yPosCurrent);
-            addAmount(document, page, invoiceCalculatorService.calculateItemTotalAmount(item), xPosAmount, yPosCurrent);
+            addUnitPrice(document, page, item.unitPrice(), xPosUnitPrice, yPosCurrent, unitPriceWidthMillimeters);
+            addAmount(document, page, invoiceCalculatorService.calculateItemTotalAmount(item), xPosAmount, yPosCurrent, amountWidthMillimeters);
           } catch (IOException e) {
             throw new RuntimeException(e);
           }
@@ -311,13 +313,6 @@ public class PdfService {
 
 
     contentStream.close();
-
-//    var entryHeight = 20;
-//    var tableWidthMillimeters = A4_WIDTH_MILLIMETERS - MARGIN_LEFT_MILLIMETERS - MARGIN_RIGHT_MILLIMETERS;
-//    var tableWidth = millimetersToPoints(tableWidthMillimeters);
-
-//    var decimalFormat = new DecimalFormat();
-//    decimalFormat.setMaximumFractionDigits(2);
   }
 
   private void addPosition(PDDocument document, PDPage page, String position, float xPos, float yPos) throws IOException {
@@ -358,26 +353,30 @@ public class PdfService {
     contentStream.close();
   }
 
-  private void addUnitPrice(PDDocument document, PDPage page, Double unitPrice, float xPos, float yPos) throws IOException {
+  private void addUnitPrice(PDDocument document, PDPage page, Double unitPrice, float xPos, float yPos, int cellWidthMillimeters) throws IOException {
     var contentStream = new PDPageContentStream(document, page, PDPageContentStream.AppendMode.APPEND, false);
     var decimalFormat = new DecimalFormat();
     decimalFormat.setMinimumFractionDigits(2);
 
     var unitPriceWithCurrency = String.join(" ", "CHF", decimalFormat.format(unitPrice));
+    var cellWidth = millimetersToPoints(cellWidthMillimeters);
+    var xPosValue = getXPosRightAlignedEntry(unitPriceWithCurrency, TEXT_SIZE_SMALL, xPos, cellWidth);
 
-    drawText(contentStream, unitPriceWithCurrency, xPos, yPos, TEXT_SIZE_SMALL);
+    drawText(contentStream, unitPriceWithCurrency, xPosValue, yPos, TEXT_SIZE_SMALL);
 
     contentStream.close();
   }
 
-  private void addAmount(PDDocument document, PDPage page, Double amount, float xPos, float yPos) throws IOException {
+  private void addAmount(PDDocument document, PDPage page, Double amount, float xPos, float yPos, int cellWidthMillimeters) throws IOException {
     var contentStream = new PDPageContentStream(document, page, PDPageContentStream.AppendMode.APPEND, false);
     var decimalFormat = new DecimalFormat();
     decimalFormat.setMinimumFractionDigits(2);
 
     var amountWithCurrency = String.join(" ", "CHF", decimalFormat.format(amount));
+    var cellWidth = millimetersToPoints(cellWidthMillimeters);
+    var xPosValue = getXPosRightAlignedEntry(amountWithCurrency, TEXT_SIZE_SMALL, xPos, cellWidth);
 
-    drawText(contentStream, amountWithCurrency, xPos, yPos, TEXT_SIZE_SMALL);
+    drawText(contentStream, amountWithCurrency, xPosValue, yPos, TEXT_SIZE_SMALL);
 
     contentStream.close();
   }
@@ -390,16 +389,19 @@ public class PdfService {
     return page.getMediaBox().getWidth() - longestLineWidth - marginRight;
   }
 
-  private float getXPositionRightAlignedText(String text, PDPage page, float fontSize, int marginRightMillimeters) throws IOException {
+  private float getXPosRightAlignedEntry(String text, float fontSize, float xPosLabel, float cellWidth) throws IOException {
     var textWidth = getTextWidth(text, fontSize);
-    var marginRightPoints = millimetersToPoints(marginRightMillimeters);
-    var pageWidth = page.getMediaBox().getWidth();
+    var rightEndPoint = xPosLabel + cellWidth;
 
-    return pageWidth - textWidth - marginRightPoints;
+    return rightEndPoint - textWidth;
   }
 
   private float getTextWidth(String text, float fontSize) throws IOException {
     return PDType1Font.HELVETICA.getStringWidth(text) / 1000 * fontSize;
+  }
+
+  private float getBoldTextWidth(String text, float fontSize) throws IOException {
+    return PDType1Font.HELVETICA_BOLD.getStringWidth(text) / 1000 * fontSize;
   }
 
   private String formatDate(LocalDate date) {

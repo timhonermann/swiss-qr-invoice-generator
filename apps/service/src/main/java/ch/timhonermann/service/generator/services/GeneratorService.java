@@ -1,8 +1,6 @@
 package ch.timhonermann.service.generator.services;
 
 import ch.codeblock.qrinvoice.pdf.QrPdfMerger;
-import java.util.List;
-
 import ch.timhonermann.service.generator.dtos.Invoice;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -21,13 +19,13 @@ public class GeneratorService {
 
   public byte[] createInvoice(Invoice invoice) {
     var pdfInvoice = pdfService.generatePdfInvoice(invoice);
-    var emptyPage = pdfService.generatePageWithHeader(invoice);
+//    var emptyPage = pdfService.generatePageWithHeader(invoice);
     var qrBill = qrService.createQrBill(invoice);
 
     try {
-      var qrBillPage = QrPdfMerger.create().mergePdfs(emptyPage, qrBill);
+      return QrPdfMerger.create().mergePdfs(pdfInvoice, qrBill);
 
-      return QrPdfMerger.create().appendPdfs(List.of(pdfInvoice, qrBillPage));
+//      return QrPdfMerger.create().appendPdfs(List.of(pdfInvoice, qrBillPage));
     } catch (Exception ex) {
       System.out.println(ex.getMessage());
     }
