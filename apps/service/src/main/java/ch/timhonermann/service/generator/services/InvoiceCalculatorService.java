@@ -27,13 +27,13 @@ public class InvoiceCalculatorService {
   public double calculateRoundingDifference(List<Item> items) {
     var totalAmountRaw = calculateTotalAmountRaw(items);
     var totalAmount = calculateTotalAmount(items);
-    var difference = totalAmountRaw - totalAmount;
+    var difference = totalAmount - totalAmountRaw;
 
     return roundToTwoDecimal(difference);
   }
 
   public double calculateItemTotalAmount(Item item) {
-    return roundToTwoDecimal(item.unitPrice() * (double)item.quantity());
+    return roundToTwoDecimal(item.unitPrice() * item.quantity());
   }
 
   public double roundToTwoDecimal(double value) {
