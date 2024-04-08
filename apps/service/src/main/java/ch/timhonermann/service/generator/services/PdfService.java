@@ -403,6 +403,7 @@ public class PdfService {
     var contentStream = new PDPageContentStream(document, page, PDPageContentStream.AppendMode.APPEND, false);
     var decimalFormat = new DecimalFormat();
     decimalFormat.setMinimumFractionDigits(2);
+    decimalFormat.setMaximumFractionDigits(2);
 
     var value = decimalFormat.format(quantity);
     var cellWidth = millimetersToPoints(QUANTITY_WIDTH_MILLIMETERS);
@@ -431,6 +432,7 @@ public class PdfService {
     var contentStream = new PDPageContentStream(document, page, PDPageContentStream.AppendMode.APPEND, false);
     var decimalFormat = new DecimalFormat();
     decimalFormat.setMinimumFractionDigits(2);
+    decimalFormat.setMaximumFractionDigits(2);
 
     var unitPriceWithCurrency = String.join(" ", "CHF", decimalFormat.format(unitPrice));
     var cellWidth = millimetersToPoints(UNIT_PRICE_WIDTH_MILLIMETERS);
@@ -445,6 +447,7 @@ public class PdfService {
     var contentStream = new PDPageContentStream(document, page, PDPageContentStream.AppendMode.APPEND, false);
     var decimalFormat = new DecimalFormat();
     decimalFormat.setMinimumFractionDigits(2);
+    decimalFormat.setMaximumFractionDigits(2);
 
     var amountWithCurrency = String.join(" ", "CHF", decimalFormat.format(amount));
     var cellWidth = millimetersToPoints(AMOUNT_WIDTH_MILLIMETERS);
