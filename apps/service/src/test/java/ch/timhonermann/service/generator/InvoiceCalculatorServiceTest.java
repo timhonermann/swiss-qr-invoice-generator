@@ -1,5 +1,7 @@
 package ch.timhonermann.service.generator;
 
+import ch.timhonermann.service.generator.dtos.Item;
+import ch.timhonermann.service.generator.services.InvoiceCalculatorService;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
 import org.mockito.InjectMocks;
@@ -18,8 +20,8 @@ class InvoiceCalculatorServiceTest {
   void shouldReturnTotalAmountIncludingTax() {
     // Arrange
     var items = List.of(
-      new Item("Arbeitsstunden", 100, 100d, 8.1),
-      new Item("Anderes", 3, 150d, 8.1)
+      new Item("Arbeitsstunden", 100d, 100d, 8.1),
+      new Item("Anderes", 3d, 150d, 8.1)
     );
     var expectedTotalAmount = 11296.45;
 
@@ -34,8 +36,8 @@ class InvoiceCalculatorServiceTest {
   void shouldReturnDownTotalAmountIncludingTax() {
     // Arrange
     var items = List.of(
-      new Item("Arbeitsstunden", 104, 120d, 8.1),
-      new Item("Anderes", 3, 150d, 8.1)
+      new Item("Arbeitsstunden", 104d, 120d, 8.1),
+      new Item("Anderes", 3d, 150d, 8.1)
     );
     var expectedTotalAmount = 13977.30;
 
@@ -50,8 +52,8 @@ class InvoiceCalculatorServiceTest {
   void shouldCalculateTotalAmountWithoutTax() {
     // Arrange
     var items = List.of(
-      new Item("Arbeitsstunden", 104, 120d, 8.1),
-      new Item("Anderes", 3, 150d, 8.1)
+      new Item("Arbeitsstunden", 104d, 120d, 8.1),
+      new Item("Anderes", 3d, 150d, 8.1)
     );
     var expectedTotalAmount = 12930.00;
 
@@ -66,8 +68,8 @@ class InvoiceCalculatorServiceTest {
   void shouldCalculateTotalVat() {
     // Arrange
     var items = List.of(
-      new Item("Arbeitsstunden", 104, 120d, 8.1),
-      new Item("Anderes", 3, 150d, 8.1)
+      new Item("Arbeitsstunden", 104d, 120d, 8.1),
+      new Item("Anderes", 3d, 150d, 8.1)
     );
     var expectedTotalVat = 1047.33;
 
@@ -82,8 +84,8 @@ class InvoiceCalculatorServiceTest {
   void shouldCalculateRoundingDifference() {
     // Arrange
     var items = List.of(
-      new Item("Arbeitsstunden", 104, 120d, 8.1),
-      new Item("Anderes", 3, 150d, 8.1)
+      new Item("Arbeitsstunden", 104d, 120d, 8.1),
+      new Item("Anderes", 3d, 150d, 8.1)
     );
     var expectedRoundingDifference = .03;
 
@@ -97,7 +99,7 @@ class InvoiceCalculatorServiceTest {
   @Test
   void shouldCalculateTotalAmountOfSingleItem() {
     // Arrange
-    var item = new Item("Arbeitsstunden", 104, 120d, 8.1);
+    var item = new Item("Arbeitsstunden", 104d, 120d, 8.1);
     var expectedTotalAmount = 12480.00;
 
     // Act
