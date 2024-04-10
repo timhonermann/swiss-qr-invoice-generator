@@ -19,13 +19,10 @@ public class GeneratorService {
 
   public byte[] createInvoice(Invoice invoice) {
     var pdfInvoice = pdfService.generatePdfInvoice(invoice);
-//    var emptyPage = pdfService.generatePageWithHeader(invoice);
     var qrBill = qrService.createQrBill(invoice);
 
     try {
       return QrPdfMerger.create().mergePdfs(pdfInvoice, qrBill);
-
-//      return QrPdfMerger.create().appendPdfs(List.of(pdfInvoice, qrBillPage));
     } catch (Exception ex) {
       System.out.println(ex.getMessage());
     }
