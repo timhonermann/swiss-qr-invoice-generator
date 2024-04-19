@@ -1,11 +1,11 @@
 {
-  "extends": ["../../.eslintrc.json"],
+  "extends": ["../../../../.eslintrc.json"],
   "ignorePatterns": ["!**/*"],
   "overrides": [
     {
       "files": ["*.ts"],
       "parserOptions": {
-        "project": ["apps/client/tsconfig.*?.json"]
+        "project": ["libs/client/feature/generator/tsconfig.*?.json"]
       },
       "extends": [
         "plugin:@nx/angular",
@@ -16,7 +16,7 @@
           "error",
           {
             "type": "attribute",
-            "prefix": "sqig",
+            "prefix": "lib",
             "style": "camelCase"
           }
         ],
