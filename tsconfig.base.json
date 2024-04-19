@@ -17,6 +17,9 @@
     "paths": {
       "@swiss-qr-invoice-generator/client/feature/generator": [
         "libs/client/feature/generator/src/index.ts"
+      ],
+      "@swiss-qr-invoice-generator/client/shared/globals": [
+        "libs/client/shared/globals/index.ts"
       ]
     }
   },

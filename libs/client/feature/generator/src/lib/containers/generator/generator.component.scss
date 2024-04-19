@@ -1,0 +1,34 @@
+.container {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  height: 100%;
+
+  .invoice-information {
+    width: 100%;
+
+    .invoice-information-form {
+      display: flex;
+      flex-direction: column;
+
+      .form-field {
+        width: 300px;
+      }
+    }
+  }
+
+  .people {
+    display: flex;
+    flex-flow: row wrap;
+    width: 100%;
+    gap: 10px;
+
+    .creditor,
+    .debtor
+    {
+      min-width: 300px;
+      flex: 1;
+      border: solid black 1px;
+    }
+  }
+}

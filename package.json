@@ -41,7 +41,6 @@
     "@angular/cli": "~17.3.0",
     "@angular/compiler-cli": "~17.3.0",
     "@angular/language-service": "~17.3.0",
-    "@angular/material": "^17.3.5",
     "@nx/eslint": "18.3.2",
     "@nx/eslint-plugin": "18.3.2",
     "@nx/jest": "18.3.2",

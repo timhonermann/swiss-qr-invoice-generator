@@ -1,10 +1,11 @@
-import { Component, inject } from '@angular/core';
-import { RouterModule } from '@angular/router';
 import { HttpClient } from '@angular/common/http';
+import { Component, inject } from '@angular/core';
+import { MatButton } from '@angular/material/button';
+import { RouterModule } from '@angular/router';
 
 @Component({
   standalone: true,
-  imports: [RouterModule],
+  imports: [RouterModule, MatButton],
   selector: 'sqig-root',
   templateUrl: './app.component.html',
   styleUrl: './app.component.scss',

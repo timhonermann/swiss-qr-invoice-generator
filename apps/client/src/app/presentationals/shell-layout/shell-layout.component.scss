@@ -1,0 +1,19 @@
+:host {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  height: 100%;
+}
+
+.header {
+  width: 100%;
+  height: 80px;
+}
+
+.content {
+  flex: 1;
+  padding: 10px;
+  overflow: hidden;
+  background-color: var(--mat-app-background-color);
+  color: var(--mat-app-text-color);
+}
