@@ -1,0 +1,309 @@
+@use 'sass:math';
+@use '../../styles/button-vars';
+@use 'partials/font';
+
+@mixin button-coloring($color) {
+  &.filled {
+    button {
+      background-color: var(--color-button-#{$color}-enabled);
+      color: var(--color-button-#{$color}-enabled-contrast);
+    }
+  }
+
+  &.outline,
+  &.link {
+    button {
+      background-color: transparent;
+      color: var(--color-button-#{$color}-enabled);
+    }
+  }
+
+  &.outline {
+    button {
+      border: 1px solid;
+      border-color: var(--color-button-#{$color}-enabled);
+    }
+  }
+
+  .external-label {
+    color: var(--color-button-#{$color}-enabled);
+  }
+
+  &:hover:not([disabled]) {
+    &.filled {
+      button {
+        background-color: var(--color-button-#{$color}-hover);
+      }
+    }
+
+    &.outline,
+    &.link {
+      button {
+        color: var(--color-button-#{$color}-hover);
+      }
+    }
+
+    &.outline {
+      button {
+        border-color: var(--color-button-#{$color}-hover);
+      }
+    }
+
+    .external-label {
+      color: var(--color-button-#{$color}-hover);
+    }
+  }
+
+  &:focus {
+    button {
+      outline: none;
+      box-shadow: none;
+    }
+
+    &.filled {
+      button {
+        background-color: var(--color-button-#{$color}-focus);
+      }
+    }
+
+    &.outline,
+    &.link {
+      button {
+        color: var(--color-button-#{$color}-focus);
+      }
+    }
+
+    &.outline {
+      button {
+        border-color: var(--color-button-#{$color}-focus);
+      }
+    }
+
+    .external-label {
+      color: var(--color-button-#{$color}-focus);
+    }
+  }
+
+  &[disabled] {
+    &.filled {
+      button {
+        background-color: var(--color-button-#{$color}-disabled);
+        color: var(--color-button-#{$color}-disabled-contrast);
+      }
+    }
+
+    &.outline,
+    &.link {
+      button {
+        color: var(--color-button-#{$color}-disabled);
+      }
+    }
+
+    &.outline {
+      button {
+        border-color: var(--color-button-#{$color}-disabled);
+      }
+    }
+
+    .external-label {
+      color: var(--color-button-#{$color}-disabled);
+    }
+  }
+}
+
+@mixin button-size($size) {
+  height: map-get(button-vars.$button-height, #{$size});
+  min-width: map-get(button-vars.$button-height, #{$size});
+
+  button {
+    .icon {
+      font-size: map-get(button-vars.$button-icon-size, #{$size});
+    }
+  }
+
+  .external-label {
+    font-size: 15px;
+  }
+}
+
+@mixin button-type-rounded() {
+  border-radius: map-get(button-vars.$button-height, x-large) * 0.5;
+}
+
+:host {
+  position: relative;
+  display: inline-block;
+  font-size: button-vars.$button-font-size;
+  cursor: pointer;
+  font-weight: 500;
+
+  &[disabled] {
+    cursor: default;
+  }
+
+  @include button-coloring(primary);
+
+  &.secondary-1 {
+    @include button-coloring(secondary-1);
+  }
+
+  &.secondary-2 {
+    @include button-coloring(secondary-2);
+  }
+
+  &.success {
+    @include button-coloring(success);
+  }
+
+  &.disruption {
+    @include button-coloring(disruption);
+  }
+
+  &.rounded {
+    button {
+      @include button-type-rounded();
+    }
+  }
+
+  &.link {
+    button {
+      padding: button-vars.$button-padding-top-bottom 0;
+    }
+  }
+
+  &.floating {
+    button {
+      box-shadow: var(--shadow-01);
+    }
+  }
+
+  &.inline-block {
+    min-width: button-vars.$button-min-width;
+    min-height: button-vars.$button-default-height;
+
+    button {
+      .icon {
+        margin-right: 6px;
+      }
+    }
+  }
+
+  &.block {
+    min-width: button-vars.$button-min-width;
+    min-height: button-vars.$button-default-height;
+    display: block;
+    width: 100%;
+
+    button {
+      .icon {
+        margin-right: 6px;
+      }
+    }
+  }
+
+  &.icon-only {
+    vertical-align: middle;
+    display: inline-flex;
+    gap: 16px;
+    align-items: center;
+
+    &.x-large {
+      @include button-size(x-large);
+    }
+
+    &.large {
+      @include button-size(large);
+    }
+
+    &.medium {
+      @include button-size(medium);
+    }
+
+    &.small {
+      @include button-size(small);
+    }
+
+    &.x-small {
+      @include button-size(x-small);
+    }
+
+    button {
+      padding: unset;
+      padding: button-vars.$button-padding-top-bottom 0;
+      aspect-ratio: 1;
+    }
+  }
+
+  &[matSuffix],
+  &.link {
+    min-width: unset;
+  }
+
+  &:not(:first-of-type) {
+    margin-left: button-vars.$default-margin;
+  }
+}
+
+:host-context(.button.icon-only + .button.icon-only) {
+  margin-left: button-vars.$icon-margin;
+}
+
+button {
+  min-width: inherit;
+  width: inherit;
+  min-height: inherit;
+  height: inherit;
+  position: relative;
+  border-radius: 2px;
+  font-size: inherit;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: button-vars.$button-padding-top-bottom
+    button-vars.$button-padding-left-right;
+  border: none;
+  font-family: font.$font-family-main;
+  transition:
+    background-color button-vars.$transition-duration,
+    border-color button-vars.$transition-duration,
+    color button-vars.$transition-duration;
+  font-weight: inherit;
+  user-select: none;
+  cursor: unset;
+
+  :focus-visible {
+    outline: none;
+    box-shadow: none;
+  }
+
+  .icon {
+    align-self: center;
+    font-size: 20px;
+  }
+
+  .spinner-wrapper {
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    background: none;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .transparent {
+    opacity: 0;
+  }
+}
+
+.external-label {
+  font-weight: 800;
+  margin-right: 8px;
+  user-select: none;
+  transition: color button-vars.$transition-duration;
+}

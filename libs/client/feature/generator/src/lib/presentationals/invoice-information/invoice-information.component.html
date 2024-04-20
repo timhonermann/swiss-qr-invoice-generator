@@ -1,0 +1,39 @@
+<form class="invoice-information-form" [formGroup]="formGroup()">
+  <div class="form-field-group">
+    <mat-form-field class="form-field">
+      <mat-label>Titel</mat-label>
+      <input matInput formControlName="title" />
+    </mat-form-field>
+    <mat-form-field class="form-field">
+      <mat-label>MWST-Nr</mat-label>
+      <input matInput formControlName="vatNumber" />
+    </mat-form-field>
+    <mat-form-field class="form-field">
+      <mat-label>Referenznummer</mat-label>
+      <input matInput formControlName="referenceNumber" />
+    </mat-form-field>
+  </div>
+  <div class="form-field-group">
+    <mat-form-field class="form-field">
+    <mat-label>Rechnungsdatum</mat-label>
+    <input matInput formControlName="invoiceDate" [matDatepicker]="invoiceDatePicker" />
+    <mat-datepicker-toggle matIconSuffix [for]="invoiceDatePicker"></mat-datepicker-toggle>
+    <mat-datepicker #invoiceDatePicker></mat-datepicker>
+    </mat-form-field>
+    <mat-form-field class="form-field">
+      <mat-label>Fälligkeitsdatum</mat-label>
+      <input matInput formControlName="dueDate" [matDatepicker]="dueDatePicker" />
+      <mat-datepicker-toggle matIconSuffix [for]="dueDatePicker"></mat-datepicker-toggle>
+      <mat-datepicker #dueDatePicker></mat-datepicker>
+    </mat-form-field>
+    <mat-form-field class="form-field">
+      <mat-label>Abrechnungsperiode</mat-label>
+      <mat-date-range-input [rangePicker]="billingPeriodPicker">
+        <input matStartDate formControlName="periodFrom" placeholder="Start Datum">
+        <input matEndDate formControlName="periodTo" placeholder="End Datum">
+      </mat-date-range-input>
+      <mat-datepicker-toggle matIconSuffix [for]="billingPeriodPicker"></mat-datepicker-toggle>
+      <mat-date-range-picker #billingPeriodPicker></mat-date-range-picker>
+    </mat-form-field>
+  </div>
+</form>

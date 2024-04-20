@@ -1,0 +1,43 @@
+@use '../base-colors';
+
+.button button {
+  .mat-spinner,
+  .mat-mdc-progress-spinner {
+    circle {
+      stroke: currentColor;
+    }
+  }
+}
+
+:root {
+  --color-button-primary-enabled: #{base-colors.$color-purple-base};
+  --color-button-primary-disabled: #{base-colors.$color-purple-light};
+  --color-button-primary-hover: #{base-colors.$color-purple-dark};
+  --color-button-primary-focus: #{base-colors.$color-purple-darker};
+  --color-button-primary-enabled-contrast: #{base-colors.$gray-01};
+  --color-button-primary-disabled-contrast: #{base-colors.$gray-01};
+  --color-button-secondary-1-enabled: #{base-colors.$gray-03};
+  --color-button-secondary-1-disabled: #{base-colors.$gray-02};
+  --color-button-secondary-1-hover: #{base-colors.$gray-04};
+  --color-button-secondary-1-focus: #{base-colors.$gray-05};
+  --color-button-secondary-1-enabled-contrast: #{base-colors.$gray-13};
+  --color-button-secondary-1-disabled-contrast: #{base-colors.$gray-07};
+  --color-button-secondary-2-enabled: #{base-colors.$gray-04};
+  --color-button-secondary-2-disabled: #{base-colors.$gray-03};
+  --color-button-secondary-2-hover: #{base-colors.$gray-05};
+  --color-button-secondary-2-focus: #{base-colors.$gray-06};
+  --color-button-secondary-2-enabled-contrast: #{base-colors.$gray-13};
+  --color-button-secondary-2-disabled-contrast: #{base-colors.$gray-07};
+  --color-button-success-enabled: #{base-colors.$color-green-base};
+  --color-button-success-disabled: #{base-colors.$color-green-light};
+  --color-button-success-hover: #{base-colors.$color-green-dark};
+  --color-button-success-focus: #{base-colors.$color-green-darker};
+  --color-button-success-enabled-contrast: #{base-colors.$gray-01};
+  --color-button-success-disabled-contrast: #{base-colors.$gray-01};
+  --color-button-disruption-enabled: #{base-colors.$color-red-base};
+  --color-button-disruption-disabled: #{base-colors.$color-red-lighter};
+  --color-button-disruption-hover: #{base-colors.$color-red-dark};
+  --color-button-disruption-focus: #{base-colors.$color-red-darker};
+  --color-button-disruption-enabled-contrast: #{base-colors.$gray-01};
+  --color-button-disruption-disabled-contrast: #{base-colors.$gray-01};
+}

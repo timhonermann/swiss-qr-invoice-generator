@@ -2,7 +2,7 @@
   "name": "client-feature-generator",
   "$schema": "../../../../node_modules/nx/schemas/project-schema.json",
   "sourceRoot": "libs/client/feature/generator/src",
-  "prefix": "lib",
+  "prefix": "sqig",
   "projectType": "library",
   "tags": ["scope:client", "type:feature"],
   "targets": {

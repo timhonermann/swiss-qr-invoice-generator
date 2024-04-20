@@ -20,6 +20,15 @@
       ],
       "@swiss-qr-invoice-generator/client/shared/globals": [
         "libs/client/shared/globals/index.ts"
+      ],
+      "@swiss-qr-invoice-generator/shared/theme": [
+        "libs/shared/theme/src/index.ts"
+      ],
+      "@swiss-qr-invoice-generator/shared/ui/button": [
+        "libs/shared/ui/button/src/index.ts"
+      ],
+      "@swiss-qr-invoice-generator/shared/ui/icons": [
+        "libs/shared/ui/icons/src/index.ts"
       ]
     }
   },

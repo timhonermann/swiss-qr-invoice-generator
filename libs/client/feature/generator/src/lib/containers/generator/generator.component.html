@@ -1,37 +1,21 @@
 <div class="container">
   <div class="invoice-information">
     <h2>Rechnungsinformationen</h2>
-    <form class="invoice-information-form" [formGroup]="invoiceInformationForm">
-      <mat-form-field class="form-field">
-        <mat-label>Titel</mat-label>
-        <input matInput formControlName="title" />
-      </mat-form-field>
-      <mat-form-field class="form-field">
-        <mat-label>Rechnungsdatum</mat-label>
-        <input matInput formControlName="invoiceDate" [matDatepicker]="invoiceDatePicker" />
-        <mat-datepicker-toggle matIconSuffix [for]="invoiceDatePicker"></mat-datepicker-toggle>
-        <mat-datepicker #invoiceDatePicker></mat-datepicker>
-      </mat-form-field>
-      <mat-form-field class="form-field">
-        <mat-label>Titel</mat-label>
-        <input matInput formControlName="title" />
-      </mat-form-field>
-      <mat-form-field class="form-field">
-        <mat-label>Titel</mat-label>
-        <input matInput formControlName="title" />
-      </mat-form-field>
-      <mat-form-field class="form-field">
-        <mat-label>Titel</mat-label>
-        <input matInput formControlName="title" />
-      </mat-form-field>
-    </form>
+    <sqig-invoice-information [formGroup]="invoiceInformationForm" />
   </div>
   <div class="people">
     <div class="creditor">
       <h2>Creditor</h2>
+      <sqig-creditor [formGroup]="creditorForm" />
     </div>
     <div class="debtor">
       <h2>Debitor</h2>
+      <sqig-debtor [formGroup]="debtorForm" />
     </div>
   </div>
+  <div class="items">
+    <h2>Rechnungseinträge</h2>
+  </div>
+
+  <sqig-button icon="document" label="Generate" />
 </div>

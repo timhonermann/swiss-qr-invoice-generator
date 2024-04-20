@@ -1,0 +1,23 @@
+$button-height: (
+  x-large: 44px,
+  large: 36px,
+  medium: 24px,
+  small: 20px,
+  x-small: 15px,
+);
+$button-default-height: map-get($button-height, large);
+$button-icon-size: (
+  x-large: 24px,
+  large: 24px,
+  medium: 20px,
+  small: 16px,
+  x-small: 12px,
+);
+$button-min-width: 106px;
+$transition-duration: 200ms;
+$button-font-size: 15px;
+$default-margin: 16px;
+$icon-margin: 8px;
+
+$button-padding-top-bottom: 8px;
+$button-padding-left-right: 12px;

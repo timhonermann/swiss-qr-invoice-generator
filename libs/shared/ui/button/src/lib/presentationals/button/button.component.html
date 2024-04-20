@@ -1,0 +1,35 @@
+<button
+  #button
+  (click)="onButtonClick($event)"
+  (mouseleave)="onMouseLeave()"
+  [disabled]="disabled || isSpinning"
+  [matTooltipPosition]="tooltipPosition"
+  [matTooltip]="tooltipText"
+  [type]="behavior"
+>
+  @if (!!icon) {
+    <mat-icon
+      [class.transparent]="isSpinning"
+      [svgIcon]="icon"
+      class="icon"
+    ></mat-icon>
+  }
+
+  @if (display !== 'icon-only') {
+    <span [class.transparent]="isSpinning" class="label">
+      {{ label }}
+    </span>
+  }
+
+  @if (isSpinning) {
+    <div class="spinner-wrapper">
+      <mat-spinner [diameter]="spinnerSize" class="spinner"></mat-spinner>
+    </div>
+  }
+</button>
+
+@if (display === 'icon-only' && label) {
+  <span (click)="button.click()" class="external-label">
+    {{ label }}
+  </span>
+}

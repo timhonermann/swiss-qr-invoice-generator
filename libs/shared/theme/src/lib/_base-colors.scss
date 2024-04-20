@@ -1,0 +1,154 @@
+$color-blue-base: rgba(0, 150, 202, 1); // #0096ca
+$color-blue-dark: rgba(0, 136, 184, 1); // #0088b8
+$color-blue-darker: rgba(0, 106, 143, 1); // #006a8f
+$color-blue-darkest: rgba(37, 70, 81, 1); // #254651
+$color-blue-light: rgba(158, 223, 245, 1); // #9edff5
+$color-blue-lighter: rgba(207, 239, 250, 1); // #cfeffa
+$color-blue-lightest: rgba(237, 250, 255, 1); // #edfaff
+
+$color-purple-base: rgba(129, 0, 129); // #810081
+$color-purple-dark: rgba(116, 0, 116); // #740074
+$color-purple-darker: rgba(104, 0, 104); // #680068
+$color-purple-darkest: rgba(93, 0, 93); // #5D005D
+$color-purple-light: rgba(141, 25, 141); // #8D198D
+$color-purple-lighter: rgba(154, 50, 154); // #9a329a
+$color-purple-lightest: rgba(166, 76, 166); // #A64CA6
+
+$color-pastel-green-base: rgb(165, 194, 171); // #a5c2ab
+$color-pastel-green-dark: rgb(147, 172, 152); // #93ac98
+$color-pastel-green-darker: rgb(110, 129, 114); // #6e8172
+$color-pastel-green-darkest: rgb(73, 86, 76); // #49564c
+$color-pastel-green-light: rgb(174, 200, 179); // #aec8b3
+$color-pastel-green-lighter: rgb(192, 212, 196); // #c0d4c4
+$color-pastel-green-lightest: rgb(210, 224, 213); // #d2e0d5
+
+$color-green-base: rgba(33, 163, 0, 1); // #21a300
+$color-green-dark: rgba(29, 143, 0, 1); // #1d8f00
+$color-green-darker: rgba(23, 115, 0, 1); // #177300
+$color-green-darkest: rgba(43, 57, 28, 1); // #2b391c
+$color-green-light: rgba(190, 233, 144, 1); // #bee990
+$color-green-lighter: rgba(234, 250, 215, 1); // #eafad7
+$color-green-lightest: rgba(247, 251, 243, 1); // #f7fbf3
+
+$color-indigo-base: rgba(67, 112, 158, 1); // #43709e
+$color-indigo-dark: rgba(59, 99, 140, 1); // #3b638c
+$color-indigo-darker: rgba(52, 87, 122, 1); // #34577a
+$color-indigo-darkest: rgba(37, 49, 61, 1); // #25313d
+$color-indigo-light: rgba(137, 164, 195, 1); // #89a4c3
+$color-indigo-lighter: rgba(208, 219, 231, 1); // #d0dbe7
+$color-indigo-lightest: rgba(232, 240, 248, 1); // #e8f0f8
+
+$color-orange-base: rgba(232, 107, 0, 1); // #e86b00
+$color-orange-dark: rgba(209, 96, 0, 1); // #d16000
+$color-orange-darker: rgba(161, 74, 0, 1); // #a14a00
+$color-orange-darkest: rgba(71, 55, 29, 1); // #47371d
+$color-orange-light: rgba(250, 211, 148, 1); // #fad394
+$color-orange-lighter: rgba(253, 237, 211, 1); // #fdedd3
+$color-orange-lightest: rgba(253, 249, 242, 1); // #fdf9f2
+
+$color-petrol-base: rgba(24, 142, 155, 1); // #188e9b
+$color-petrol-dark: rgba(19, 117, 128, 1); // #137580
+$color-petrol-darker: rgba(15, 91, 99, 1); // #0f5b63
+$color-petrol-darkest: rgba(24, 50, 52, 1); // #183234
+$color-petrol-light: rgba(139, 198, 205, 1); // #8bc6cd
+$color-petrol-lighter: rgba(174, 216, 220, 1); // #aed8dc
+$color-petrol-lightest: rgba(229, 243, 245, 1); // #e5f3f5
+
+$color-red-base: rgba(208, 2, 27, 1); // #d0021b
+$color-red-dark: rgba(186, 1, 24, 1); // #ba0118
+$color-red-darker: rgba(139, 1, 18, 1); // #8b0112
+$color-red-darkest: rgba(64, 22, 27, 1); // #40161b
+$color-red-light: rgba(235, 142, 153, 1); // #eb8e99
+$color-red-lighter: rgba(246, 204, 209, 1); // #f6ccd1
+$color-red-lightest: rgba(255, 244, 245, 1); // #fff4f5
+
+$color-yellow-base: rgba(255, 237, 0, 1); // #ffed00
+$color-yellow-dark: rgba(255, 221, 0, 1); // #ffdd00
+$color-yellow-darker: rgba(227, 193, 32, 1); // #e3c120
+$color-yellow-darkest: rgba(78, 71, 36, 1); // #4e4724
+$color-yellow-light: rgba(255, 241, 153, 1); // #fff199
+$color-yellow-lighter: rgba(255, 247, 199, 1); // #fff7c7
+$color-yellow-lightest: rgba(255, 251, 227, 1); // #fffbe3
+
+$gray-01: rgba(255, 255, 255, 1); // #ffffff
+$gray-02: rgba(241, 241, 241, 1); // #f1f1f1
+$gray-03: rgba(228, 228, 228, 1); // #e4e4e4
+$gray-04: rgba(203, 203, 203, 1); // #cbcbcb
+$gray-05: rgba(179, 179, 179, 1); // #b3b3b3
+$gray-06: rgba(154, 154, 154, 1); // #9a9a9a
+$gray-07: rgba(128, 128, 128, 1); // #808080
+$gray-08: rgba(115, 115, 115, 1); // #737373
+$gray-09: rgba(104, 104, 104, 1); // #686868
+$gray-10: rgba(77, 77, 77, 1); // #4d4d4d
+$gray-11: rgba(52, 52, 52, 1); // #343434
+$gray-12: rgba(38, 38, 38, 1); // #262626
+$gray-13: rgba(28, 28, 28, 1); // #1c1c1c
+$gray-14: rgba(21, 21, 21, 1); // #151515
+$gray-15: rgba(0, 0, 0, 1); // #000000
+$gray-transparent-01: rgba(0, 0, 0, 0.08); // #00000014
+$gray-transparent-02: rgba(0, 0, 0, 0.8); // #000000cc
+$dim-gray: rgba(108, 117, 107, 1); // #6C756B
+$white-transparent-01: rgba(255, 255, 255, 0.8); // #ffffffcc
+
+$spectrum-apple-base: rgba(58, 169, 49, 1); // #3aa931
+$spectrum-apple-light: rgba(58, 169, 49, 0.05); // #3aa931
+$spectrum-azure-base: rgba(0, 75, 154, 1); // #004b9a
+$spectrum-azure-light: rgba(0, 75, 154, 0.05); // #004b9a
+$spectrum-bordeaux-base: rgba(94, 0, 44, 1); // #5e002c
+$spectrum-bordeaux-light: rgba(94, 0, 44, 0.05); // #5e002c
+$spectrum-carrot-base: rgba(246, 145, 0, 1); // #f69100
+$spectrum-carrot-light: rgba(246, 145, 0, 0.05); // #f69100
+$spectrum-cerulean-base: rgba(1, 160, 230, 1); // #01a0e6
+$spectrum-cerulean-light: rgba(1, 160, 230, 0.05); // #01a0e6
+$spectrum-citrine-base: rgba(211, 216, 0, 1); // #d3d800
+$spectrum-citrine-light: rgba(211, 216, 0, 0.05); // #d3d800
+$spectrum-eucalyptus-base: rgba(30, 150, 50, 1); // #1e9632
+$spectrum-eucalyptus-light: rgba(30, 150, 50, 0.05); // #1e9632
+$spectrum-eyes-base: rgba(1, 105, 181, 1); // #0169b5
+$spectrum-eyes-light: rgba(1, 105, 181, 0.05); // #0169b5
+$spectrum-ferrari-base: rgba(255, 4, 19, 1); // #ff0413
+$spectrum-ferrari-light: rgba(255, 4, 19, 0.05); // #ff0413
+$spectrum-flint-base: rgba(104, 104, 104, 1); // #686868
+$spectrum-flint-light: rgba(104, 104, 104, 0.05); // #686868
+$spectrum-flirt-base: rgba(150, 29, 129, 1); // #961d81
+$spectrum-flirt-light: rgba(150, 29, 129, 0.05); // #961d81
+$spectrum-fuchsia-base: rgba(186, 0, 100, 1); // #ba0064
+$spectrum-fuchsia-light: rgba(185, 0, 100, 0.05); // #b90064
+$spectrum-ghost-base: rgba(203, 203, 203, 1); // #cbcbcb
+$spectrum-ghost-light: rgba(203, 203, 203, 0.05); // #cbcbcb
+$spectrum-granite-base: rgba(128, 128, 128, 1); // #808080
+$spectrum-granite-light: rgba(128, 128, 128, 0.05); // #808080
+$spectrum-iris-base: rgba(100, 34, 129, 1); // #642281
+$spectrum-iris-light: rgba(100, 34, 129, 0.05); // #642281
+$spectrum-liver-base: rgba(77, 77, 77, 1); // #4d4d4d
+$spectrum-liver-light: rgba(77, 77, 77, 0.05); // #4d4d4d
+$spectrum-magenta-base: rgba(190, 7, 130, 1); // #be0782
+$spectrum-magenta-light: rgba(190, 7, 130, 0.05); // #be0782
+$spectrum-mercury-base: rgba(228, 228, 228, 1); // #e4e4e4
+$spectrum-mercury-light: rgba(228, 228, 228, 0.05); // #e4e4e4
+$spectrum-meteorite-base: rgba(50, 40, 130, 1); // #322882
+$spectrum-meteorite-light: rgba(50, 40, 130, 0.05); // #322882
+$spectrum-milk-base: rgba(255, 255, 255, 1); // #ffffff
+$spectrum-milk-light: rgba(255, 255, 255, 0.05); // #ffffff
+$spectrum-mulberry-base: rgba(140, 0, 75, 1); // #8c004b
+$spectrum-mulberry-light: rgba(140, 0, 75, 0.05); // #8c004b
+$spectrum-night-base: rgba(0, 0, 0, 1); // #000000
+$spectrum-night-light: rgba(0, 0, 0, 0.05); // #000000
+$spectrum-nobel-base: rgba(179, 179, 179, 1); // #b3b3b3
+$spectrum-nobel-light: rgba(179, 179, 179, 0.05); // #b3b3b3
+$spectrum-pacific-base: rgba(0, 155, 190, 1); // #009bbe
+$spectrum-pacific-light: rgba(0, 155, 190, 0.05); // #009bbe
+$spectrum-papaya-base: rgba(235, 89, 10, 1); // #eb590a
+$spectrum-papaya-light: rgba(235, 89, 10, 0.05); // #eb590a
+$spectrum-pea-base: rgba(150, 195, 29, 1); // #96c31d
+$spectrum-pea-light: rgba(150, 195, 29, 0.05); // #96c31d
+$spectrum-petrol-base: rgba(0, 155, 150, 1); // #009b96
+$spectrum-petrol-light: rgba(0, 155, 150, 0.05); // #009b96
+$spectrum-pink-base: rgba(230, 0, 160, 1); // #e600a0
+$spectrum-pink-light: rgba(230, 0, 160, 0.05); // #e600a0
+$spectrum-sunny-base: rgba(255, 236, 0, 1); // #ffec00
+$spectrum-sunny-light: rgba(255, 237, 0, 0.05); // #ffed00
+$spectrum-teal-base: rgba(0, 150, 100, 1); // #009664
+$spectrum-teal-light: rgba(0, 150, 100, 0.05); // #009664
+$spectrum-water-base: rgba(0, 135, 205, 1); // #0087cd
+$spectrum-water-light: rgba(0, 135, 205, 0.05); // #0087cd

@@ -1,0 +1,19 @@
+@use 'vars';
+@use 'components/buttons';
+@use 'partials/font';
+
+html,
+body {
+  margin: 0;
+  padding: 0;
+  height: 100vh;
+  width: 100%;
+  color: var(--color-font-primary);
+}
+
+* {
+  font-family: font.$font-family-main;
+  box-sizing: border-box;
+  hyphenate-character: '-';
+  text-size-adjust: 100%;
+}
