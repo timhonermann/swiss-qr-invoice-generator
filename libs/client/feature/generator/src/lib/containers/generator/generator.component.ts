@@ -1,5 +1,5 @@
 import { CommonModule } from '@angular/common';
-import { Component, inject } from '@angular/core';
+import { ChangeDetectionStrategy, Component, inject } from '@angular/core';
 import { ReactiveFormsModule } from '@angular/forms';
 import { MatDatepickerModule } from '@angular/material/datepicker';
 import { MatFormFieldModule } from '@angular/material/form-field';
@@ -9,11 +9,8 @@ import { WizardService } from '@swiss-qr-invoice-generator/shared/ui/wizard';
 import { take, tap } from 'rxjs';
 import { Invoice } from '../../models/generator.models';
 import { CreditorStepComponent } from '../../presentationals/creditor-step/creditor-step.component';
-import { CreditorComponent } from '../../presentationals/creditor/creditor.component';
 import { DebtorStepComponent } from '../../presentationals/debtor-step/debtor-step.component';
-import { DebtorComponent } from '../../presentationals/debtor/debtor.component';
 import { InvoiceInformationStepComponent } from '../../presentationals/invoice-information-step/invoice-information-step.component';
-import { InvoiceInformationComponent } from '../../presentationals/invoice-information/invoice-information.component';
 
 @Component({
   selector: 'sqig-generator',
@@ -25,12 +22,10 @@ import { InvoiceInformationComponent } from '../../presentationals/invoice-infor
     MatInputModule,
     MatDatepickerModule,
     ButtonComponent,
-    InvoiceInformationComponent,
-    CreditorComponent,
-    DebtorComponent,
   ],
   templateUrl: './generator.component.html',
   styleUrl: './generator.component.scss',
+  changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class GeneratorComponent {
   private readonly wizardService = inject(WizardService);
