@@ -8,9 +8,7 @@ import { ButtonComponent } from '@swiss-qr-invoice-generator/shared/ui/button';
 import { WizardService } from '@swiss-qr-invoice-generator/shared/ui/wizard';
 import { take, tap } from 'rxjs';
 import { Invoice } from '../../models/generator.models';
-import { CreditorStepComponent } from '../../presentationals/creditor-step/creditor-step.component';
-import { DebtorStepComponent } from '../../presentationals/debtor-step/debtor-step.component';
-import { InvoiceInformationStepComponent } from '../../presentationals/invoice-information-step/invoice-information-step.component';
+import { InvoiceItemsStepComponent } from '../../presentationals/invoice-items-step/invoice-items-step.component';
 
 @Component({
   selector: 'sqig-generator',
@@ -35,9 +33,10 @@ export class GeneratorComponent {
       .open<Invoice>({
         title: 'Rechnung erstellen',
         steps: [
-          InvoiceInformationStepComponent,
-          CreditorStepComponent,
-          DebtorStepComponent,
+          // InvoiceInformationStepComponent,
+          // CreditorStepComponent,
+          // DebtorStepComponent,
+          InvoiceItemsStepComponent,
         ],
         data: this.generateEmptyInvoice(),
       })

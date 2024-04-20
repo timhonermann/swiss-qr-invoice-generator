@@ -1,0 +1,55 @@
+.invoice-items-container {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+
+  .add-item-container {
+    display: block;
+
+    .add-item-form {
+      display: flex;
+      flex-flow: row wrap;
+      gap: 20px;
+      flex: 1;
+
+      .form-field {
+        min-width: 150px;
+        flex: 1;
+      }
+    }
+
+    .add-button {
+      width: 150px;
+    }
+  }
+
+  .table {
+    width: 100%;
+    border-collapse: collapse;
+
+    caption {
+      text-align: left;
+    }
+
+    td, th {
+      text-align: left;
+    }
+
+    td {
+      border-top: 1px solid #dddddd
+    }
+
+    .description,
+    .number-item {
+      padding: 8px;
+    }
+
+    .number-item {
+      text-align: right;
+    }
+
+    .description {
+      text-align: left;
+    }
+  }
+}

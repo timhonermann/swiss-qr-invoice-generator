@@ -1,0 +1,45 @@
+<div class="invoice-items-container">
+  <div class="add-item-container">
+  <form class="add-item-form" [formGroup]="addItemForm">
+    <mat-form-field class="form-field">
+      <mat-label>Beschreibung</mat-label>
+      <input matInput formControlName="description" />
+    </mat-form-field>
+    <mat-form-field class="form-field">
+      <mat-label>Anzahl</mat-label>
+      <input matInput formControlName="quantity" />
+    </mat-form-field>
+    <mat-form-field class="form-field">
+      <mat-label>MWST in %</mat-label>
+      <input matInput formControlName="vat" />
+    </mat-form-field>
+    <mat-form-field class="form-field">
+      <mat-label>Einzelpreis</mat-label>
+      <input matInput formControlName="unitPrice" />
+    </mat-form-field>
+  </form>
+
+    <sqig-button class="add-button" label="Hinzufügen" [disabled]="!!isFormInvalid()" (clicked)="addItem()" />
+  </div>
+  <div>
+    <h1>Items</h1>
+    <table class="table">
+      <caption>Rechnungseinträge</caption>
+      <tr>
+        <th class="description">Beschreibung</th>
+        <th class="number-item">Anzahl</th>
+        <th class="number-item">MWST in %</th>
+        <th class="number-item">Einzelpreis</th>
+      </tr>
+      @for (item of items(); track item.description) {
+        <sqig-button display="icon-only" icon="document" size="small" />
+        <tr>
+          <td class="description">{{ item.description }}</td>
+          <td class="number-item">{{ item.quantity }}</td>
+          <td class="number-item">{{ item.vat }}</td>
+          <td class="number-item">{{ item.unitPrice }}</td>
+        </tr>
+      }
+    </table>
+  </div>
+</div>
