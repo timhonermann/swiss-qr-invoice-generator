@@ -1,0 +1,19 @@
+<ng-container>
+  <h1>{{ title() }}</h1>
+  @if (showStepIndicator()) {
+    <sqig-step-indicator
+      [currentStep]="currentStep()"
+      [maxSteps]="maxSteps()"
+    ></sqig-step-indicator>
+  }
+  @if (showCloseButton()) {
+    <sqig-button
+      class="close-button"
+      shape="rounded"
+      color="secondary-1"
+      display="icon-only"
+      icon="xmark"
+      (clicked)="close()"
+    ></sqig-button>
+  }
+</ng-container>

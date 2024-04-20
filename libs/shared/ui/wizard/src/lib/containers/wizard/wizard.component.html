@@ -1,0 +1,24 @@
+<sqig-wizard-layout>
+  <sqig-wizard-header
+    slot="top"
+    [title]="title()"
+    [maxSteps]="maxSteps()"
+    [currentStep]="currentStep"
+    (closeClicked)="cancel()"
+  ></sqig-wizard-header>
+  <div slot="content">
+    <ng-template sqigWizardContent></ng-template>
+  </div>
+  <sqig-wizard-footer
+    slot="bottom"
+    [maxSteps]="maxSteps()"
+    [currentStep]="currentStep"
+    [isLoading]="isLoading"
+    [isNextDisabled]="isNextDisabled()"
+    [completeButtonLabel]="completeButtonLabel()"
+    (backClicked)="onBack()"
+    (nextClicked)="onNext()"
+    (cancelClicked)="cancel()"
+    (completeClicked)="onComplete()"
+  ></sqig-wizard-footer>
+</sqig-wizard-layout>

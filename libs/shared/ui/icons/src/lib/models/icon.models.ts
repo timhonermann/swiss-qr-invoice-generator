@@ -1,3 +1,3 @@
-export const icons = ['document'] as const;
+export const icons = ['document', 'xmark'] as const;
 
 export type IconType = (typeof icons)[number];

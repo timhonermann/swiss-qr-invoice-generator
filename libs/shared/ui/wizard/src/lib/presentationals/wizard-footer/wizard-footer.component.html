@@ -1,0 +1,36 @@
+<div class="wizard-footer-actions">
+  @if (showBackButton()) {
+    <sqig-button
+      data-cy="wizard-button-back"
+      [label]="'default.buttons.back'"
+      color="secondary-1"
+      (clicked)="back()"
+    ></sqig-button>
+  }
+  @if (showCancelButton()) {
+    <sqig-button
+      data-cy="wizard-button-cancel"
+      [label]="'default.buttons.cancel'"
+      color="secondary-1"
+      (clicked)="cancel()"
+    ></sqig-button>
+  }
+  @if (showNextButton()) {
+    <sqig-button
+      data-cy="wizard-button-continue"
+      [label]="'default.buttons.continue'"
+      [disabled]="isNextDisabled()"
+      (clicked)="next()"
+    ></sqig-button>
+  }
+  @if (showCompleteButton()) {
+    <sqig-button
+      data-cy="wizard-button-complete"
+      [label]="completeButtonLabel() ?? 'default.buttons.complete'"
+      [icon]="icon()"
+      [disabled]="isNextDisabled()"
+      [isSpinning]="isLoading()"
+      (clicked)="complete()"
+    ></sqig-button>
+  }
+</div>

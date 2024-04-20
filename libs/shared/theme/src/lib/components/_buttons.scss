@@ -11,7 +11,7 @@
 
 :root {
   --color-button-primary-enabled: #{base-colors.$color-purple-base};
-  --color-button-primary-disabled: #{base-colors.$color-purple-light};
+  --color-button-primary-disabled: #{base-colors.$color-purple-lightest};
   --color-button-primary-hover: #{base-colors.$color-purple-dark};
   --color-button-primary-focus: #{base-colors.$color-purple-darker};
   --color-button-primary-enabled-contrast: #{base-colors.$gray-01};

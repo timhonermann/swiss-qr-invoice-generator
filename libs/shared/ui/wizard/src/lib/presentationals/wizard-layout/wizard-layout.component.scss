@@ -1,0 +1,18 @@
+:host {
+  max-width: 1116px;
+  width: 100%;
+  margin: 41px 42px 56px;
+  display: flex;
+  flex-direction: column;
+}
+
+.wizard-header {
+  position: relative;
+  display: block;
+  padding-bottom: 30px;
+}
+
+.wizard-content {
+  flex: 1;
+  overflow: auto;
+}

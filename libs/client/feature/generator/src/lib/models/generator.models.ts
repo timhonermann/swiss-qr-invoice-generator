@@ -2,8 +2,8 @@ export type Creditor = {
   iban: string;
   name: string;
   streetName: string;
-  streetNumber: number;
-  postalCode: number;
+  streetNumber: string;
+  postalCode: string;
   city: string;
   country: 'CH';
   phone: string;

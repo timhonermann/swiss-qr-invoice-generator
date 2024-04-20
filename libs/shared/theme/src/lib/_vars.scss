@@ -11,4 +11,19 @@
   --color-font-gray-primary: #{base-colors.$gray-10};
   --color-font-gray-secondary: #{base-colors.$gray-07};
   --color-font-inverted: #{base-colors.$gray-13};
+
+  // grays
+  --color-system-gray-01: #{base-colors.$gray-07};
+  --color-system-gray-02: #{base-colors.$gray-06};
+  --color-system-gray-03: #{base-colors.$gray-05};
+  --color-system-gray-04: #{base-colors.$gray-04};
+  --color-system-gray-05: #{base-colors.$gray-03};
+  --color-system-gray-06: #{base-colors.$gray-02};
+  --color-system-gray-07: #{base-colors.$gray-02};
+  --color-icon-gray-01: #{base-colors.$gray-07};
+  --color-icon-gray-02: #{base-colors.$gray-08};
+  --color-icon-gray-03: #{base-colors.$gray-09};
+  --color-icon-gray-04: #{base-colors.$gray-11};
+  --color-icon-gray-05: #{base-colors.$gray-12};
+  --color-icon-gray-06: #{base-colors.$gray-13};
 }

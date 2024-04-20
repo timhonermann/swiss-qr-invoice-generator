@@ -1,0 +1,3 @@
+@for (step of toArray(maxSteps()); track step) {
+  <div class="step" [class.active]="isActive($index)"></div>
+}

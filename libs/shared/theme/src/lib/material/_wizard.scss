@@ -1,0 +1,11 @@
+.wizard-full-screen {
+  border-radius: 0;
+  min-width: 100vw;
+  min-height: 100vh;
+
+  --mat-dialog-container-min-width: 100vw;
+
+  mat-dialog-container {
+    background-color: var(--color-background-primary);
+  }
+}

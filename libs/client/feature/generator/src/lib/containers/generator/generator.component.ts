@@ -1,17 +1,18 @@
 import { CommonModule } from '@angular/common';
 import { Component, inject } from '@angular/core';
-import {
-  FormBuilder,
-  FormControl,
-  ReactiveFormsModule,
-  Validators,
-} from '@angular/forms';
+import { ReactiveFormsModule } from '@angular/forms';
 import { MatDatepickerModule } from '@angular/material/datepicker';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
 import { ButtonComponent } from '@swiss-qr-invoice-generator/shared/ui/button';
+import { WizardService } from '@swiss-qr-invoice-generator/shared/ui/wizard';
+import { take, tap } from 'rxjs';
+import { Invoice } from '../../models/generator.models';
+import { CreditorStepComponent } from '../../presentationals/creditor-step/creditor-step.component';
 import { CreditorComponent } from '../../presentationals/creditor/creditor.component';
+import { DebtorStepComponent } from '../../presentationals/debtor-step/debtor-step.component';
 import { DebtorComponent } from '../../presentationals/debtor/debtor.component';
+import { InvoiceInformationStepComponent } from '../../presentationals/invoice-information-step/invoice-information-step.component';
 import { InvoiceInformationComponent } from '../../presentationals/invoice-information/invoice-information.component';
 
 @Component({
@@ -32,39 +33,56 @@ import { InvoiceInformationComponent } from '../../presentationals/invoice-infor
   styleUrl: './generator.component.scss',
 })
 export class GeneratorComponent {
-  private readonly formBuilder = inject(FormBuilder);
+  private readonly wizardService = inject(WizardService);
 
-  readonly invoiceInformationForm = this.formBuilder.group({
-    title: new FormControl<string | null>(null, [Validators.required]),
-    invoiceDate: new FormControl<Date | null>(null, [Validators.required]),
-    dueDate: new FormControl<Date | null>(null, [Validators.required]),
-    periodFrom: new FormControl<Date | null>(null, [Validators.required]),
-    periodTo: new FormControl<Date | null>(null, [Validators.required]),
-    vatNumber: new FormControl<string | null>(null, [Validators.required]),
-    referenceNumber: new FormControl<string | null>(null, [
-      Validators.required,
-    ]),
-  });
+  openWizard(): void {
+    this.wizardService
+      .open<Invoice>({
+        title: 'Rechnung erstellen',
+        steps: [
+          InvoiceInformationStepComponent,
+          CreditorStepComponent,
+          DebtorStepComponent,
+        ],
+        data: this.generateEmptyInvoice(),
+      })
+      .afterClosed()
+      .pipe(
+        take(1),
+        tap(() => console.log('closed'))
+      )
+      .subscribe();
+  }
 
-  readonly creditorForm = this.formBuilder.group({
-    iban: new FormControl<string | null>(null, [Validators.required]),
-    name: new FormControl<string | null>(null, [Validators.required]),
-    streetName: new FormControl<string | null>(null, [Validators.required]),
-    streetNumber: new FormControl<string | null>(null, [Validators.required]),
-    postalCode: new FormControl<number | null>(null, [Validators.required]),
-    city: new FormControl<string | null>(null, [Validators.required]),
-    phone: new FormControl<string | null>(null, [Validators.required]),
-    email: new FormControl<string | null>(null, [
-      Validators.required,
-      Validators.email,
-    ]),
-  });
-
-  readonly debtorForm = this.formBuilder.group({
-    name: new FormControl<string | null>(null, [Validators.required]),
-    streetName: new FormControl<string | null>(null, [Validators.required]),
-    streetNumber: new FormControl<string | null>(null, [Validators.required]),
-    postalCode: new FormControl<number | null>(null, [Validators.required]),
-    city: new FormControl<string | null>(null, [Validators.required]),
-  });
+  private generateEmptyInvoice(): Invoice {
+    return {
+      title: '',
+      vatNumber: '',
+      reference: '',
+      invoiceDate: new Date(),
+      dueDate: new Date(),
+      periodFrom: new Date(),
+      periodTo: new Date(),
+      creditor: {
+        iban: '',
+        name: '',
+        streetName: '',
+        streetNumber: '',
+        postalCode: '',
+        city: '',
+        country: 'CH',
+        phone: '',
+        email: '',
+      },
+      debtor: {
+        name: '',
+        streetName: '',
+        streetNumber: '',
+        postalCode: '',
+        city: '',
+        country: 'CH',
+      },
+      items: [],
+    };
+  }
 }

@@ -1,0 +1,35 @@
+.creditor-form {
+  display: flex;
+  width: 100%;
+  flex-direction: column;
+
+  .form-field {
+    width: 100%;
+  }
+
+  .street {
+    display: flex;
+    gap: 20px;
+
+    .street-form-field {
+      flex: 1;
+    }
+
+    .street-number-form-field {
+      width: 80px;
+    }
+  }
+
+  .city {
+    display: flex;
+    gap: 20px;
+
+    .postal-code-form-field {
+      width: 120px;
+    }
+
+    .city-form-field {
+      flex: 1;
+    }
+  }
+}

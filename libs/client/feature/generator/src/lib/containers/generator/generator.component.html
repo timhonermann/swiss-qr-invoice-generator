@@ -1,21 +1,5 @@
 <div class="container">
-  <div class="invoice-information">
-    <h2>Rechnungsinformationen</h2>
-    <sqig-invoice-information [formGroup]="invoiceInformationForm" />
-  </div>
-  <div class="people">
-    <div class="creditor">
-      <h2>Creditor</h2>
-      <sqig-creditor [formGroup]="creditorForm" />
-    </div>
-    <div class="debtor">
-      <h2>Debitor</h2>
-      <sqig-debtor [formGroup]="debtorForm" />
-    </div>
-  </div>
-  <div class="items">
-    <h2>Rechnungseinträge</h2>
-  </div>
-
-  <sqig-button icon="document" label="Generate" />
+  <h1>QR Rechnung ganz einfach erstellen</h1>
+  <p>Der Swiss QR Invoice Generator dient dazu ganz einfach Rechnungen zu erstellen. Der Generator ist auf selbständige Dienstleister und Freelancer ausgelegt.</p>
+  <sqig-button display="block" label="Neue Rechnung erstellen" (clicked)="openWizard()" />
 </div>
