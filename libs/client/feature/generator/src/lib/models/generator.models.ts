@@ -8,9 +8,13 @@ export type Creditor = {
   country: 'CH';
   phone: string;
   email: string;
+  logo: string | null;
 };
 
-export type UltimateDebtor = Omit<Creditor, 'iban' | 'phone' | 'email'>;
+export type UltimateDebtor = Omit<
+  Creditor,
+  'iban' | 'phone' | 'email' | 'logo'
+>;
 
 export type Item = {
   description: string;

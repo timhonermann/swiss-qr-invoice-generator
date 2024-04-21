@@ -12,6 +12,13 @@
   --color-font-gray-secondary: #{base-colors.$gray-07};
   --color-font-inverted: #{base-colors.$gray-13};
 
+  // tints
+  --color-tint-accent-base: #{base-colors.$color-purple-base};
+  --color-tint-accent-lightest: #{base-colors.$color-purple-lightest};
+  --color-tint-accent-dark: #{base-colors.$color-purple-dark};
+  --color-tint-accent-darker: #{base-colors.$color-purple-darker};
+  --color-tint-accent-base-contrast: #{base-colors.$gray-01};
+
   // grays
   --color-system-gray-01: #{base-colors.$gray-07};
   --color-system-gray-02: #{base-colors.$gray-06};

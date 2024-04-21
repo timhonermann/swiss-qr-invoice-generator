@@ -117,6 +117,7 @@ export class WizardComponent implements OnInit {
   }
 
   private setTitle(title: string): void {
+    console.log('setting title');
     this.config.title = title;
 
     // Because the child component (wizard step) can call

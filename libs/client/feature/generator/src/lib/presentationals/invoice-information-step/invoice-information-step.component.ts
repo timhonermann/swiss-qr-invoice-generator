@@ -4,7 +4,6 @@ import {
   Component,
   DestroyRef,
   inject,
-  OnInit,
 } from '@angular/core';
 import { takeUntilDestroyed } from '@angular/core/rxjs-interop';
 import {
@@ -48,7 +47,7 @@ import { Invoice } from '../../models/generator.models';
   styleUrl: './invoice-information-step.component.scss',
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
-export class InvoiceInformationStepComponent implements OnInit, WizardStep {
+export class InvoiceInformationStepComponent implements WizardStep {
   private readonly formBuilder = inject(FormBuilder);
 
   private readonly data = inject<Invoice>(WIZARD_DATA);

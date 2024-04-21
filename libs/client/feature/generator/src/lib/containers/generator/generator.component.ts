@@ -13,6 +13,7 @@ import { InvoiceInformationStepComponent } from '../../presentationals/invoice-i
 import { CreditorStepComponent } from '../../presentationals/creditor-step/creditor-step.component';
 import { DebtorStepComponent } from '../../presentationals/debtor-step/debtor-step.component';
 import { GeneratorService } from '../../services/generator.service';
+import { CreditorLogoStepComponent } from '../../presentationals/creditor-logo/creditor-logo-step.component';
 
 @Component({
   selector: 'sqig-generator',
@@ -40,6 +41,7 @@ export class GeneratorComponent {
         title: 'Rechnung erstellen',
         steps: [
           InvoiceInformationStepComponent,
+          CreditorLogoStepComponent,
           CreditorStepComponent,
           DebtorStepComponent,
           InvoiceItemsStepComponent,
@@ -83,6 +85,7 @@ export class GeneratorComponent {
         country: 'CH',
         phone: '',
         email: '',
+        logo: null,
       },
       ultimateDebtor: {
         name: '',

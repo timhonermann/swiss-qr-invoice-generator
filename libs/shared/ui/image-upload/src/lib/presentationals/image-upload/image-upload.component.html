@@ -1,1 +1,18 @@
-<p>image-upload works!</p>
+<div class="image-container">
+  @if (imageUrl()) {
+    <img [src]="imageUrl()" alt="Logo">
+    <sqig-button class="delete-button" icon="bin" display="icon-only" shape="rounded" size="large" (clicked)="removeImage()" />
+  } @else {
+    <div class="image-upload-container" (click)="fileUpload.click()">
+      <div>Logo Hochladen</div>
+    </div>
+  }
+</div>
+
+<input
+  #fileUpload
+  type="file"
+  class="file-upload-input"
+  (change)="handleFileInput($event)"
+  [accept]="acceptFileTypes.toString()"
+/>

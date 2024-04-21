@@ -15,6 +15,7 @@ import {
 } from '@swiss-qr-invoice-generator/shared/ui/wizard';
 import { debounceTime, distinctUntilChanged, tap } from 'rxjs';
 import { Invoice } from '../../models/generator.models';
+import { ImageUploadComponent } from '@swiss-qr-invoice-generator/shared/ui/image-upload';
 
 @Component({
   selector: 'sqig-creditor-step',
@@ -25,6 +26,7 @@ import { Invoice } from '../../models/generator.models';
     MatInput,
     MatLabel,
     ReactiveFormsModule,
+    ImageUploadComponent,
   ],
   templateUrl: './creditor-step.component.html',
   styleUrl: './creditor-step.component.scss',
