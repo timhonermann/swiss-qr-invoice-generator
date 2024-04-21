@@ -10,7 +10,7 @@ export type Creditor = {
   email: string;
 };
 
-export type Debtor = Omit<Creditor, 'iban' | 'phone' | 'email'>;
+export type UltimateDebtor = Omit<Creditor, 'iban' | 'phone' | 'email'>;
 
 export type Item = {
   description: string;
@@ -28,6 +28,6 @@ export type Invoice = {
   vatNumber: string;
   reference: string;
   creditor: Creditor;
-  debtor: Debtor;
+  ultimateDebtor: UltimateDebtor;
   items: Item[];
 };

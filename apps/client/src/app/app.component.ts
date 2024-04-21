@@ -78,21 +78,5 @@ export class AppComponent {
         },
       ],
     };
-
-    this.httpClient
-      .post('http://localhost:8080/api/v1/generator', invoice, {
-        observe: 'body',
-        responseType: 'blob',
-      })
-      .subscribe((response) => {
-        const fileUrl = URL.createObjectURL(response);
-
-        const a = document.createElement('a');
-
-        a.href = fileUrl;
-        a.download = 'qrInvoice.pdf';
-        a.click();
-        a.remove();
-      });
   }
 }

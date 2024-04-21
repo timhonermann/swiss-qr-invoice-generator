@@ -21,6 +21,10 @@
       "@swiss-qr-invoice-generator/client/shared/globals": [
         "libs/client/shared/globals/index.ts"
       ],
+      "@swiss-qr-invoice-generator/shared/common/http": [
+        "libs/shared/common/http/src/index.ts"
+      ],
+      "@swiss-qr-invoice-generator/shared/testing": ["libs/shared/testing/index.ts"],
       "@swiss-qr-invoice-generator/shared/theme": [
         "libs/shared/theme/src/index.ts"
       ],
@@ -32,6 +36,9 @@
       ],
       "@swiss-qr-invoice-generator/shared/ui/icons": [
         "libs/shared/ui/icons/src/index.ts"
+      ],
+      "@swiss-qr-invoice-generator/shared/ui/image-upload": [
+        "libs/shared/ui/image-upload/src/index.ts"
       ],
       "@swiss-qr-invoice-generator/shared/ui/wizard": [
         "libs/shared/ui/wizard/src/index.ts"

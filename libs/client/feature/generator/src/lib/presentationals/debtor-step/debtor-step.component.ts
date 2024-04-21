@@ -67,11 +67,11 @@ export class DebtorStepComponent implements OnInit, WizardStep {
   private mapFormToInvoice(): void {
     const formValues = this.debtorForm.getRawValue();
 
-    this.data.debtor.name = formValues.name ?? '';
-    this.data.debtor.streetName = formValues.streetName ?? '';
-    this.data.debtor.streetNumber = formValues.streetNumber ?? '';
-    this.data.debtor.postalCode = formValues.postalCode ?? '';
-    this.data.debtor.city = formValues.city ?? '';
+    this.data.ultimateDebtor.name = formValues.name ?? '';
+    this.data.ultimateDebtor.streetName = formValues.streetName ?? '';
+    this.data.ultimateDebtor.streetNumber = formValues.streetNumber ?? '';
+    this.data.ultimateDebtor.postalCode = formValues.postalCode ?? '';
+    this.data.ultimateDebtor.city = formValues.city ?? '';
   }
 
   private setFormData(): void {
@@ -79,12 +79,16 @@ export class DebtorStepComponent implements OnInit, WizardStep {
       return;
     }
 
-    this.debtorForm.controls.name.setValue(this.data.debtor.name);
-    this.debtorForm.controls.streetName.setValue(this.data.debtor.streetName);
-    this.debtorForm.controls.streetNumber.setValue(
-      this.data.debtor.streetNumber
+    this.debtorForm.controls.name.setValue(this.data.ultimateDebtor.name);
+    this.debtorForm.controls.streetName.setValue(
+      this.data.ultimateDebtor.streetName
     );
-    this.debtorForm.controls.postalCode.setValue(this.data.debtor.postalCode);
-    this.debtorForm.controls.city.setValue(this.data.debtor.city);
+    this.debtorForm.controls.streetNumber.setValue(
+      this.data.ultimateDebtor.streetNumber
+    );
+    this.debtorForm.controls.postalCode.setValue(
+      this.data.ultimateDebtor.postalCode
+    );
+    this.debtorForm.controls.city.setValue(this.data.ultimateDebtor.city);
   }
 }
