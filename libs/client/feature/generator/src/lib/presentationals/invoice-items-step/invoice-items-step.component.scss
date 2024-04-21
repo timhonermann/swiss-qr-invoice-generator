@@ -26,6 +26,7 @@
   .table {
     width: 100%;
     border-collapse: collapse;
+    margin-top: 20px;
 
     caption {
       text-align: left;
@@ -35,8 +36,14 @@
       text-align: left;
     }
 
-    td {
-      border-top: 1px solid #dddddd
+    tr {
+      position: relative;
+
+      .remove-button {
+        position: absolute;
+        right: 0;
+        top: 7px;
+      }
     }
 
     .description,
@@ -44,12 +51,21 @@
       padding: 8px;
     }
 
+    .description {
+      padding-left: 0;
+      text-align: left;
+    }
+
     .number-item {
       text-align: right;
     }
 
-    .description {
-      text-align: left;
+    .last-column {
+      padding-right: 40px;
     }
   }
+}
+
+.row-border {
+  border-top: 1px solid #dddddd;
 }

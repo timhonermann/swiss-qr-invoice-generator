@@ -68,6 +68,10 @@ export class InvoiceItemsStepComponent implements WizardStep {
     this.addItemForm.reset();
   }
 
+  removeItem(index: number) {
+    this.data.items.splice(index, 1);
+  }
+
   validate(): boolean {
     return this.data.items.length > 0;
   }

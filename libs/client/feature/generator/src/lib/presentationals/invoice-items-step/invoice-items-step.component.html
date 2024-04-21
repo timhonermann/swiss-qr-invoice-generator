@@ -22,22 +22,21 @@
     <sqig-button class="add-button" label="Hinzufügen" [disabled]="!!isFormInvalid()" (clicked)="addItem()" />
   </div>
   <div>
-    <h1>Items</h1>
     <table class="table">
-      <caption>Rechnungseinträge</caption>
+      <caption><h1>Items</h1></caption>
       <tr>
         <th class="description">Beschreibung</th>
         <th class="number-item">Anzahl</th>
         <th class="number-item">MWST in %</th>
-        <th class="number-item">Einzelpreis</th>
+        <th class="number-item last-column">Einzelpreis</th>
       </tr>
       @for (item of items(); track item.description) {
-        <sqig-button display="icon-only" icon="document" size="small" />
-        <tr>
+        <tr class="row-border">
           <td class="description">{{ item.description }}</td>
           <td class="number-item">{{ item.quantity }}</td>
           <td class="number-item">{{ item.vat }}</td>
-          <td class="number-item">{{ item.unitPrice }}</td>
+          <td class="number-item last-column">{{ item.unitPrice }}</td>
+          <sqig-button class="remove-button" display="icon-only" icon="xmark" shape="rounded" size="small" (clicked)="removeItem($index)" />
         </tr>
       }
     </table>
