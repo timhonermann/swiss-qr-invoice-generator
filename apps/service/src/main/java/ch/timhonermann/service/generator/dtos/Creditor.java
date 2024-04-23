@@ -9,6 +9,7 @@ public record Creditor(
   String city,
   String country,
   String phone,
-  String email
+  String email,
+  String logoBase64
 ) {
 }

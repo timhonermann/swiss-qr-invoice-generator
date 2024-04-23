@@ -6,6 +6,7 @@ import org.apache.pdfbox.pdmodel.PDPage;
 import org.apache.pdfbox.pdmodel.PDPageContentStream;
 import org.apache.pdfbox.pdmodel.common.PDRectangle;
 import org.apache.pdfbox.pdmodel.font.PDType1Font;
+import org.apache.pdfbox.pdmodel.graphics.image.LosslessFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -42,13 +43,18 @@ public class PdfService {
   private static final float TITLE_TEXT_SIZE = 14f;
   private static final float DEFAULT_LINE_HEIGHT = 14f;
 
+  private static final int DEFAULT_IMAGE_HEIGHT = 94;
+
   private static final String EMAIL_REGEX = "[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\\.[A-Za-z]{2,4}";
 
   private final InvoiceCalculatorService invoiceCalculatorService;
 
+  private final ImageService imageService;
+
   @Autowired
-  PdfService(InvoiceCalculatorService invoiceCalculatorService) {
+  PdfService(InvoiceCalculatorService invoiceCalculatorService, ImageService imageService) {
     this.invoiceCalculatorService = invoiceCalculatorService;
+    this.imageService = imageService;
   }
 
   public byte[] generatePdfInvoice(Invoice invoice) {
@@ -90,6 +96,7 @@ public class PdfService {
 
     var headerLines = List.of(street, city, phone, email);
     var marginTop = millimetersToPoints(MARGIN_TOP_MILLIMETERS);
+    var marginLeft = millimetersToPoints(MARGIN_LEFT_MILLIMETERS);
     var xPos = getXPositionRightSideText(headerLines, page, FONT_SIZE_DEFAULT);
     var yPos = page.getMediaBox().getHeight() - marginTop;
 
@@ -97,6 +104,11 @@ public class PdfService {
       drawText(contentStream, line, xPos, yPos, FONT_SIZE_DEFAULT);
       yPos -= DEFAULT_LINE_HEIGHT;
     }
+
+    var image = imageService.resizeImage(creditor.logoBase64(), DEFAULT_IMAGE_HEIGHT);
+    var pdImage = LosslessFactory.createFromImage(document, image);
+
+    contentStream.drawImage(pdImage, marginLeft, yPos);
 
     contentStream.close();
   }

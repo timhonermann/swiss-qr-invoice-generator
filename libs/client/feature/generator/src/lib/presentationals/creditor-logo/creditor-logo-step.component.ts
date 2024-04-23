@@ -23,11 +23,11 @@ import {
 export class CreditorLogoStepComponent implements WizardStep {
   private readonly data = inject<Invoice>(WIZARD_DATA);
 
-  readonly logoUrl = signal<string | null>(this.data.creditor.logo);
+  readonly logoUrl = signal<string | null>(this.data.creditor.logoBase64);
 
   onLogoChanged(logo: string | null): void {
     this.logoUrl.set(logo);
-    this.data.creditor.logo = logo;
+    this.data.creditor.logoBase64 = logo;
   }
 
   validate(): boolean {

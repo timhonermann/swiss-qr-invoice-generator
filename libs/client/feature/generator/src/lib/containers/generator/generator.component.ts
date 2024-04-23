@@ -85,7 +85,7 @@ export class GeneratorComponent {
         country: 'CH',
         phone: '',
         email: '',
-        logo: null,
+        logoBase64: null,
       },
       ultimateDebtor: {
         name: '',
